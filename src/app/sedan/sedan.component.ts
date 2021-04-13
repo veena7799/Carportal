@@ -13,6 +13,7 @@ export class SedanComponent implements OnInit {
   
   userobj:any
   username:any
+  emptysedan:any
   carobj:any=[]
   searchTerm!: string;
   cartcount:any
@@ -29,6 +30,7 @@ export class SedanComponent implements OnInit {
             this.us.getsedan().subscribe(
               res=>{
                 this.carobj=res["message"]
+                this.emptysedan=this.carobj.length
               },
               err=>{
                 alert("retrive failed")

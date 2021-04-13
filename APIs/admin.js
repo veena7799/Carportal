@@ -41,7 +41,11 @@ const storage = new CloudinaryStorage({
   console.log(req.body)
  //insert 
  
-let Admin = await new admin({
+ let success = await admin.findOne({carid:req.body.carid})
+ console.log("success",success)
+
+if(success==null){
+  let Admin = await new admin({
     carid:req.body.carid,
     cartype:req.body.cartype,
     carname:req.body.carname,
@@ -66,11 +70,17 @@ let Admin = await new admin({
 await Admin.save();
 
 res.send({message:"car added successfully"})
+}
+    
+else{
+  res.send({message:"Car id already exists... choose other id"})
+}
+
  })))
  
 // get all cars
 adminApiObj.get("/getcars",eah(async (req,res)=>{
-  let carobj= await admin.find()
+  let carobj= await admin.find({status:true})
   res.send({message:carobj})
 }))
 
@@ -101,7 +111,7 @@ adminApiObj.put("/updatestatus",eah(async (req,res)=>{
 adminApiObj.get("/gethatchback/:cartype",eah(async(req,res)=>{
   
 console.log("cartype",req.params.cartype)
-  let cartype= await admin.find({cartype:req.params.cartype})
+  let cartype= await admin.find({$and:[{cartype:req.params.cartype},{status:true}]})
   console.log("cartype:",cartype)
   res.send({message:cartype})
  
@@ -109,7 +119,7 @@ console.log("cartype",req.params.cartype)
 adminApiObj.get("/getsuv/:cartype",eah(async(req,res)=>{
   
   console.log("cartype",req.params.cartype)
-    let cartype= await admin.find({cartype:req.params.cartype})
+    let cartype= await admin.find({$and:[{cartype:req.params.cartype},{status:true}]})
     console.log("cartype:",cartype)
     res.send({message:cartype})
    
@@ -118,7 +128,7 @@ adminApiObj.get("/getsuv/:cartype",eah(async(req,res)=>{
 adminApiObj.get("/getsedan/:cartype",eah(async(req,res)=>{
   
     console.log("cartype",req.params.cartype)
-      let cartype= await admin.find({cartype:req.params.cartype})
+      let cartype= await admin.find({$and:[{cartype:req.params.cartype},{status:true}]})
       console.log("cartype:",cartype)
       res.send({message:cartype})
      

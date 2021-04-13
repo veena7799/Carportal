@@ -44,7 +44,7 @@ export class RegisterComponent implements OnInit {
             }
           },
           err=>{
-            this.toastr.error('user registration failed','title')
+            this.toastr.error('user registration failed')
             console.log(err)
           }
         )

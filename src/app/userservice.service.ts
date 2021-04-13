@@ -115,6 +115,7 @@ export class UserserviceService {
     console.log("userlogin",userobj)
     return this.hc.get("user/getuser/"+userobj)
   }
+  
   getuserprofile():Observable<any>{
     
     return this.hc.get("user/getusers")

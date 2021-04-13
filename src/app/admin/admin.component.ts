@@ -32,13 +32,13 @@ export class AdminComponent implements OnInit {
     this.us.createcar(this.formData).subscribe(
       res=>{
         if(res["message"]=="car added successfully"){
-          alert(res["message"])
+         
           this.toastr.success('New Car data added successfully')
           this.route.navigateByUrl("/admindashboard")
         }
         else{
-          alert("car not added successfully")
-          this.toastr.warning('Car data is not added ')
+         
+          this.toastr.warning('Car id already exists... choose other id')
         }
       },
       err=>{

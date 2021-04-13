@@ -15,12 +15,14 @@ export class UsercartComponent implements OnInit {
   userobj:any
   usercartallcars:any=[]
   quantity:any
+  emptycart:any
   x:any
   i=0
   carobj:any
   car:any
   sum:any
   cartcount:any
+ 
     constructor(private us:UserserviceService, private route:Router ,private cs:CartserviceService) { }
   
     ngOnInit(): void {
@@ -34,6 +36,7 @@ export class UsercartComponent implements OnInit {
             this.us.getcar().subscribe(
               res=>{
                 this.carobj=res["message"]
+                this.emptycart=this.carobj.length
               },
               err=>{
                 alert("retrive failed")
@@ -110,7 +113,7 @@ export class UsercartComponent implements OnInit {
         console.log("for minus",this.cartcount)
         this.cs.setCartcount(this.cartcount--)
       }
-      this.us.updatecar(car).subscribe()
+      this.us.updatecart(car).subscribe()
       this.sum=0
       for(let i=0;i<this.usercartallcars.length;i++){
         this.sum= this.sum + this.usercartallcars[i].carprice
@@ -125,7 +128,7 @@ export class UsercartComponent implements OnInit {
     console.log(car.quantity)
     car.carprice=(car.quantity*car.carprice)
     console.log(car.carprice)
-    this.us.updatecar(car).subscribe()
+    this.us.updatecart(car).subscribe()
       let c=++this.cartcount
         this.cs.setCartcount(c)
         console.log("for plus",this.cartcount)

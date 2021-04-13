@@ -1,9 +1,10 @@
-<div class="bg" >
+<div class="mt-4 mb-4" >
     
-      
-         <div class="container">
-          <table  class="table table-bordered border-dark text-center" style="color:black;">
-            <thead>
+      <div *ngIf="emptycardata">
+        
+        <div class="container g-0">
+          <table  class="table table-bordered bg-light text-center" >
+            <thead class=" text-white" style="background-color: rgb(102, 123, 145);">
             <th>Car Image</th>
              <th>Carname</th>
              <th>Cartype</th>          
@@ -25,6 +26,10 @@
           </table>
       
          </div>
+      </div>
+      <div *ngIf="!emptycardata">
+             <h1 class="text-center" style="color:rgb(165,8,8)">No cars are added</h1>
+      </div>
     
 </div>
 

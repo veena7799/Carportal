@@ -12,6 +12,7 @@ export class SuvComponent implements OnInit {
 
   userobj:any
   username:any
+  emptysuv:any
   carobj:any=[]
   searchTerm!: string;
   cartcount:any
@@ -28,6 +29,7 @@ export class SuvComponent implements OnInit {
                 this.us.getsuv().subscribe(
                   res=>{
                     this.carobj=res["message"]
+                    this.emptysuv=this.carobj.length
                   },
                   err=>{
                     alert("retrive failed")

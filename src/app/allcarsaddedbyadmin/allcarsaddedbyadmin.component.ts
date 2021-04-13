@@ -14,6 +14,7 @@ export class AllcarsaddedbyadminComponent implements OnInit {
   carobjcopy:any=[]
   carcopyobj:any=[]
  car:any
+ emptycardata:any
  cardelete:any
  i=0;
   constructor(private us:UserserviceService,private route:Router) { }
@@ -22,7 +23,7 @@ export class AllcarsaddedbyadminComponent implements OnInit {
   this.us.getcar().subscribe(
     res=>{
       this.carobj=res["message"]
-      
+      this.emptycardata=this.carobj.length
     },
     err=>{
       alert("retrive failed")

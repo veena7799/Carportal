@@ -15,6 +15,7 @@ export class HatchbackComponent implements OnInit {
   userobj:any
   username:any
   carobj:any=[]
+  emptyhatchback:any
   searchTerm!: string;
   cartcount:any
   x=0
@@ -29,6 +30,7 @@ export class HatchbackComponent implements OnInit {
           this.us.gethatchback().subscribe(
             res=>{
               this.carobj=res["message"]
+              this.emptyhatchback=this.carobj.length
             },
             err=>{
               alert("retrive failed")

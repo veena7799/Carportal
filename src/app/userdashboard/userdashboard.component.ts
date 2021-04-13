@@ -62,8 +62,10 @@ export class UserdashboardComponent implements OnInit {
         console.log(this.cartcount)
     }
     logout()
-    {
-            this.route.navigateByUrl("/home")
+    { 
+      localStorage.clear()
+      this.toast.success("Logged out successfully!!")
+      this.route.navigateByUrl("/home")
     }
     
     addtoCart(car:any){
