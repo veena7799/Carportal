@@ -1,0 +1,27 @@
+<div class="container">
+
+   <div class="bg-light p-5">
+    <input class="form-control me-2 border-2" type="search" placeholder="Search by carname" [(ngModel)]="searchTerm">
+   </div>
+ 
+    <div class="row row-cols-md-3 row-cols-sm-2 row-cols-2 g-0 ">
+        <div class="col" *ngFor="let car of carobj | filter: searchTerm"> 
+           
+       <div  class="card m-3 border-1" >
+         <div class="card-body">      
+          <img class="img-fluid" style="padding:10px 10px" [src]="car.carimage" alt="" width="100%" height="200px">  
+          <h3 style="text-align: center;">{{car.carname}}</h3>
+          
+          <p style="text-align: center; color:rgb(56, 55, 55)"><i class="fa fa-inr" aria-hidden="true"></i>{{car.carprice}}</p>
+          <!--<button>Specifications</button>-->
+          <div class="text-center" >        
+          <button class="p-1"(click)="navigateToSpecifications((car))" style="background-color: rgb(12, 22, 63);color:white;border:none;padding:10px">Specifications</button>
+    
+        </div>
+         </div>
+       </div>
+        </div>
+       </div>
+       
+  </div>
+  

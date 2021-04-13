@@ -1,0 +1,54 @@
+<div class="slide-in-tr p-4 vv">
+    <div class="container ">
+        <div class="row">
+            <div class="col-sm-3">                
+            </div>
+            <div class="col-sm-6">
+                <form #ref="ngForm" (ngSubmit)="onSubmit(ref.value)">             
+                    <div class="form-group">
+                    <label for="cartype" style="color: white;">Car type</label>
+                    <input type="text" name="cartype" id="cartype" class="form-control" [(ngModel)]="carobj.cartype">
+                    </div>
+                    <div class="form-group">
+                    <label for="carname" style="color: white;">Car name</label>
+                    <input type="text" name="carname" id="ProductName" class="form-control" [(ngModel)]="carobj.carname">
+                    </div>
+                    <div class="form-group">
+                    <label for="carcolour" style="color: white;">Car colour</label>
+                    <input type="text" name="carcolour" id="carcolour" class="form-control" [(ngModel)]="carobj.carcolour">
+                    </div>
+                    <div class="form-group">
+                        <label for="Numberofseats" style="color: white;">Number of seats</label>
+                        <input type="text" name="Numberofseats" id="Numberofseats" class="form-control" [(ngModel)]="carobj.numberofseats">
+                        </div>
+                        <div class="form-group">
+                            <label for="Overalllength" style="color: white;">Overall length</label>
+                            <input type="text" name="Overalllength" id="Overalllength" class="form-control" [(ngModel)]="carobj.overalllength">
+                            </div>
+                            <div class="form-group">
+                                <label for="Overallheight" style="color: white;">Overall height</label>
+                                <input type="text" name="Overallheight" id="Overallheight" class="form-control" [(ngModel)]="carobj.overallheight">
+                                </div>   
+                                <div class="form-group mt-2">
+                                    <label for="carprice" style="color: white;">Car Price</label>
+                                    <input type="text" name="carprice" id="carprice" class="form-control"  [(ngModel)]="carobj.carprice" placeholder="Car price">
+                                </div>              
+                   <div class="mt-3" >
+                      <div class="row">
+                          <div class="col-sm-3"></div>
+                          <div class="col-sm-3">
+                            <button type="submit" class="btn w-100 p-3 text-white rounded-1" style="background-color: rgb(26, 165, 26)">Save</button>
+                          </div>
+                          <div class="col-sm-3">    
+                            <button  class="btn w-100 p-3 text-white rounded-1" style="background-color:rgb(218, 36, 36)" (click)="Cancelupdate()">Cancel</button>
+                          </div>
+                          <div class="col-sm-3"></div>
+
+                      </div>
+                </div>
+                   </form>
+            </div>
+            <div class="col-sm-3"></div>
+        </div>       
+    </div>
+</div>

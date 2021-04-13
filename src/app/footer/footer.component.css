@@ -1,0 +1,14 @@
+.c{
+    background-image: url("https://i.postimg.cc/3wqhvkzv/photo-1601641467525-5782e1d4a3d2.jpg");
+    background-repeat: no-repeat;
+    background-size:cover;   
+}
+.footer-border{
+    border-top: 4px solid #fff;
+  } 
+  .footer-element{
+    float: left;
+  }
+  .social-media-icons{
+    float:right;
+  }

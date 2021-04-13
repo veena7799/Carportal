@@ -1,0 +1,31 @@
+<div class="bg" >
+    
+      
+         <div class="container">
+          <table  class="table table-bordered border-dark text-center" style="color:black;">
+            <thead>
+            <th>Car Image</th>
+             <th>Carname</th>
+             <th>Cartype</th>          
+             <th>Car Price</th>
+             <th>Edit</th>
+             <th>Delete</th>
+            </thead>
+            <tr *ngFor="let car of carobj">
+              <td *ngIf="car.status"><img [src]="car.carimage" class="img-fluid" width="300px" alt=""> </td>
+              <td *ngIf="car.status">{{car.carname}}</td>
+              <td *ngIf="car.status">{{car.cartype}}</td>
+               <td *ngIf="car.status">{{car.carprice}}</td>
+              <td *ngIf="car.status"><button style="background-color: none;border:none"  (click)="Edit(car)" >
+               <i class="fa fa-pencil-square-o" style="color:#fdd700;font-weight: bold;" aria-hidden="true"></i> 
+             </button> </td>
+             <td *ngIf="car.status"><button  style="background-color:none;border:none"  (click)="Delete(car)">
+              <i class="fa fa-remove"style="color:#9c0606;font-weight:bold;" aria-hidden="true"></i></button></td>
+            </tr>
+          </table>
+      
+         </div>
+    
+</div>
+
+

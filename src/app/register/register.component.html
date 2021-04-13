@@ -1,0 +1,84 @@
+<div class="bounce-top v">
+    
+        <div class="row">
+            <div class="col-md-3 col-lg-4"></div>  
+            <div class="col-md-6 col-lg-4 cc" >
+                <div class="container">
+                <h3 class="text-center mb-1" style="color:rgb(255, 255, 254)">Register Here</h3>
+                    <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+                        <div class="form-group mt-3">
+                          <!--<label for="username"  style="font-weight:bold;">Full Name*</label>-->
+                          <input type="text" class="form-control rounded-0 p-3" formControlName="username" id="username" name="username" ngModel placeholder="John Doe">
+                        <div class="text-danger" *ngIf="getControls().username.invalid && (getControls().username.dirty || getControls().username.touched ||submitted)">
+                            <p *ngIf="getControls().username.errors?.required">Please enter valid Name*</p>
+                        </div>
+                        </div>
+
+                        <div class="form-group mt-3">
+                            <!--<label for="email"  style="font-weight: bold;">Email*</label>-->
+                            <input type="email" class="form-control rounded-0 p-3" formControlName="email" id="email" name="email" placeholder="e.g. example@address.com" ngModel>
+        
+                        <div class="text-danger" *ngIf="getControls().email.invalid && (getControls().email.dirty || getControls().email.touched ||submitted)">
+                            <p *ngIf="getControls().email.errors?.required || getControls().email.errors?.pattern">Enter valid Email ID*</p>
+                        </div>            
+                        </div>
+                        
+                        <div class="form-group mt-3">
+                           <!--<label for="password" style="font-weight: bold;">Password*</label>-->
+                            <input type="password" class="form-control rounded-0 p-3" formControlName="password" id="password" name="password" ngModel placeholder="Password">
+                            
+                        <div class="text-danger" *ngIf="getControls().password.invalid && (getControls().password.dirty || getControls().password.touched ||submitted)">
+                            <p *ngIf="getControls().password.errors?.required">Enter the Password*</p>
+                            <p *ngIf="getControls().password.errors?.pattern">Minimum eight characters, at least one uppercase, one number and one special character</p>
+                        </div>
+                        </div>
+                
+                        
+                
+                        <div class="form-group mt-3">
+                            <!--<label for="address" style="font-weight: bold;">Address*</label>-->
+                            <input type="text" class="form-control rounded-0 p-3" formControlName="address" id="address" name="address" ngModel placeholder="Address">
+                        <div class="text-danger" *ngIf="getControls().address.invalid && (getControls().address.dirty || getControls().address.touched ||submitted)">
+                            <p *ngIf="getControls().address.errors?.required">Enter the address field*</p>
+                        </div>
+                        </div>
+                
+                        <div class="form-group mt-3">
+                            <!--<label for="mno"  style="font-weight: bold;">Mobile number*</label>-->
+                            <input type="text" class="form-control rounded-0 p-3" formControlName="phoneno" id="mno" name="mno" ngModel placeholder="Mobile number">
+                        <div class="alert-danger" *ngIf="getControls().phoneno.invalid && (getControls().phoneno.dirty || getControls().phoneno.touched ||submitted)">
+                            <p *ngIf="getControls().phoneno.errors?.required">Enter valid Mobile No*</p>
+                            <p *ngIf="getControls().phoneno.errors?.pattern">Please, Enter 10 digit Mobile Number.</p>
+                        </div>
+                        </div>
+                
+                        <div class="form-group mt-3">
+                            <div class="row">
+                                <div class="col-sm-1">
+                                    <input type="checkbox" id="terms"  formControlName="termCondition" name="terms" value="Terms">
+                                </div>
+                                <div class="col-sm-11">
+                                    <label for="terms" class="text-white"> I accept the <a href="" class="text-warning" style="text-decoration:none;">Terms & Conditions</a> and <a href="" class="text-warning" style="text-decoration: none;">Privacy Policy</a>.</label>
+                                </div>
+                            </div>
+                            
+                        <div class="text-danger" *ngIf="getControls().termCondition.invalid && (getControls().termCondition.dirty || getControls().termCondition.touched ||submitted)">
+                             <p *ngIf="getControls().termCondition.errors?.required">Please read and accept the Terms and Conditions</p>
+                        </div>
+                        </div>
+                
+                        <div class="mt-3" >
+                            <button type="submit" class="btn w-100 p-3 rounded-0" style="color:white;font-weight:bold;background-color:rgb(210, 216, 89);">CREATE ACCOUNT</button>
+                           </div>
+                    </form>
+            </div>
+            </div>
+            <div class="col-md-3 col-lg-4"></div>
+        </div>
+        
+        
+</div>
+    
+        
+    
+    

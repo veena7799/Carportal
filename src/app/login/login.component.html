@@ -1,0 +1,77 @@
+<div class="slide-in-tr vv " >
+    <div class="row g-0 w-100" >
+        <div class="col-md-2 col-lg-4"></div>
+        <div class="col-md-7 col-lg-4 cc" >
+            <div class="container g-0 p-4"  >           
+                
+                    <div class=" text-center text-white" style="font-size:24px;" >Sign in to continue</div>
+                    
+               
+                <!--<h1 class="text-center">Login</h1>-->
+                <form [formGroup]="registerForm" (ngSubmit)="onSubmit()" >
+                    <div class="form-group mb-3 mt-4">
+                        <!--User-->
+                    <div class="form-check form-check-inline form-switch">
+                        <input class="form-check-input" type="radio" id="user"  name="useradmin" value="user" formControlName="useradmin" ngModel>
+                        <label class="form-check-label" style="font-weight: bold;color:rgb(255, 255, 255)" for="user">User</label>
+                    </div>
+                   <!--Admin-->
+                   <div class="form-check form-check-inline form-switch">
+                    <input class="form-check-input" type="radio" id="admin"  name="useradmin" value="admin" formControlName="useradmin" ngModel> 
+                    <label class="form-check-label" style="font-weight: bold;color:rgb(255, 255, 255)" for="admin">Admin</label>
+                   </div>
+                   <div style="color: red;" *ngIf="getControls().useradmin.invalid && (getControls().useradmin.dirty || getControls().useradmin.touched || submitted)">
+                    <p *ngIf="getControls().useradmin.errors?.required">Please select your role*</p>
+                  </div>
+                   </div>
+    
+                    <div class="form-group mt-3">
+                      <!--<label for="username" style="font-weight: bold;">Username</label>-->
+                      <input type="text" class="form-control rounded-1 p-3" formControlName="username" id="username" name="username" placeholder="Username" ngModel>
+                    <div style="color: red;" *ngIf="getControls().username.invalid && (getControls().username.dirty || getControls().username.touched || submitted)">
+                        <p *ngIf="getControls().username.errors?.required">Enter the your username*</p>
+                    </div>
+                    </div>
+                    
+                    <div class="form-group mt-3 ">
+                        <!--<label for="password" style="font-weight: bold;">Password</label>-->
+                        <input type="password" class="form-control p-3 rounded-1" formControlName="password" id="password" name="password" placeholder="Password" ngModel>
+                    <div style="color: red; font-weight: bolder; " *ngIf="getControls().password.invalid && (getControls().password.dirty || getControls().password.touched || submitted)">
+                        <p *ngIf="getControls().password.errors?.required">Enter the password field*</p>
+                    </div>
+                    </div>
+    
+                    <!--<div class="form-group mt-3">
+                        <div class="row">
+                            <div class="col-sm-1">
+                                <input type="checkbox"  id="check"  name="check" value="check">
+                            </div>
+                            <div class="col-sm-11">
+                                <label for="terms" style="color:rgb(255, 255, 255);font-weight:bold"> Keep me logged in</label>
+                            </div>
+                        </div>
+                    </div>-->
+    
+                   <div class="mt-3" >
+                    <button type="submit" class="btn w-100 p-3 text-white rounded-1" style="background-color: #f3a406;">LOGIN</button>
+                   </div>
+        
+                </form>
+                
+                <hr style="color:rgb(255, 240, 240)">
+            
+                <div class="mt-3 text-white" style="font-size:20px" >
+                   
+                   <p>New User?
+                       <a routerLink="" (click)="navigateToRegister()" style="text-decoration:none;color:#f3a406;font-weight: bolder" > 
+                           Register now</a>
+                   </p> 
+               </div>
+                  
+        </div>
+       </div>
+    <div class="col-md-2 col-lg-4"></div>
+    
+   
+</div>
+</div>

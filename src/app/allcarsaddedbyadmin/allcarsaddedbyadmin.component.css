@@ -1,0 +1,38 @@
+.bg{
+    width:100%;
+    height:auto;
+    background-image: url("https://i.postimg.cc/pdw2X3TY/viewbg5.jpg");
+    background-repeat: no-repeat;
+    background-size:100% 100%;   
+}
+
+@media screen and (min-width:650px){
+    thead{
+        font-size:22px;
+        color:white;
+        background-color: rgb(48, 47, 47);
+    }
+    tr{
+        font-size: 20px;
+    }
+    img{
+        width:"60%"; 
+        height:"200px";
+    }
+    i{
+        font-size:24px
+    }
+}
+
+@media screen and (min-width:300px){
+   
+    img{
+        width:"100%"; 
+        height:auto;
+       
+    }
+}
+thead{
+    color:white;
+        background-color: rgb(48, 47, 47);
+    }

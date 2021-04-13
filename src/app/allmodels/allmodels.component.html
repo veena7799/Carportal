@@ -1,0 +1,21 @@
+<div class="container">
+    <div class="row row-cols-md-3 row-cols-sm-2 row-cols-2 g-0 ">
+        <div class="col" *ngFor="let car of carobj | filter: searchText"> 
+           
+       <div  class="card m-3" *ngIf="car.status" >
+         <div class="card-body">      
+          <img class="img-fluid" [src]="car.carimage" alt="" width="300px" height="200px">  
+          <h3 style="color: rgb(0, 0, 0); text-align: center;">{{car.carname}}</h3>
+          <div style="padding:0px 10px">        
+            <button class="p-1"(click)="navigateToSpecifications(car)" 
+            style="background-color: rgb(121, 155, 0);color:white;border:none">Specifications</button>
+      
+            <button class="p-1" (click)="addtoCart(car)" 
+            style="float:right;background-color: rgb(185, 0, 0);color:white;border:none"><i class="fa fa-shopping-bag"></i> Add to cart</button>
+            </div>
+          
+         </div>
+       </div>
+        </div>
+       </div>
+       </div>

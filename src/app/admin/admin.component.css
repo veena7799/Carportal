@@ -1,0 +1,17 @@
+.vv{
+    width:100%;
+    height:auto;
+    background-image: url("https://i.postimg.cc/qMnKnbrF/09.jpg");
+    background-repeat: no-repeat;
+    background-size:100% 100%;   
+}
+
+.row .cc{
+    padding:20px 30px
+}
+
+@media screen and (min-width:1300px){
+    .row .cc{
+            padding:20px 180px;
+    }
+}

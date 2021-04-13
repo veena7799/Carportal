@@ -1,0 +1,19 @@
+.accordion-button {
+    background-color:rgb(231, 229, 229);
+    color:black;
+    font-weight: bold;
+    font-size: 22px;
+    border:none;
+  }
+  
+  .accordion-button.collapsed {
+    background-color: rgb(28, 26, 141);
+    color:white;
+    font-weight: bold;
+    font-size: 22px;
+  }
+
+  .accordion-body{
+      background-color:rgb(231, 229, 229) ;
+      
+  }

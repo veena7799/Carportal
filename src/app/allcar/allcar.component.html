@@ -1,0 +1,20 @@
+<div class="container mt-4 mb-4">
+  <h1 style="color: black; text-align: center;height:auto;">Models</h1>
+  <div class="row row-cols-md-3 row-cols-sm-2 row-cols-2 g-3 g-md-5">
+      <div class="col" *ngFor="let car of carobj"> 
+    
+     <div class="card">
+       <div class="card-body bg-dark">
+       <button  (click)="navigateToSpecifications((car))">
+        <img [src]="car.carimage" alt="" width="100%" height="auto"> 
+      </button> 
+        <h3 class="text-center pt-2" style="color: blanchedalmond;">{{car.carname}}</h3>
+      
+
+       </div>
+     </div>
+      </div>
+     </div>
+</div>
+
+

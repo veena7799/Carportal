@@ -1,0 +1,199 @@
+<div class="container  mb-5">
+
+            <div class="accordion" id="accordionExample">
+                <div class="accordion-item">
+                  <h2 class="accordion-header" id="headingOne">
+                    <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                        <p>
+                             Credit or Debit Cards
+
+                            <i class="fa fa-credit-card" style="font-size: 40px; margin:0px 20px;"></i>
+                             
+                             <i class="fa fa-cc-visa" style="font-size: 40px;"></i>
+                              
+                        </p>
+                    </button>
+                  </h2>
+                  <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+                    <div class="accordion-body">
+                        <!-- <form #formRef="ngForm" (ngSubmit)="onSubmit(formRef.value)">
+                            <div class="row">
+                                <div class="col-sm-6">
+                                    <div class="form-group"> 
+                                        <label for="chname">Cardholder Name</label>
+                                        <input required  maxlength="12" type="text" class="form-control" id="chname"  name="chname" ngModel #chname="ngModel">
+                                        <div class="text-danger" *ngIf="isSubmitted||chname.touched && (chname.dirty || chname.invalid)">
+                                            <div *ngIf="chname.errors?.required">Name is Required</div>
+                                        </div>
+                                    </div>
+                                    <div class="form-group"> 
+                                        <label for="cnum">Card Number</label>
+                                        <input required  maxlength="12" type="number" class="form-control" id="cnum"  name="cnum" ngModel #cnum="ngModel">
+                                        <div class="text-danger" *ngIf="isSubmitted||cnum.touched && (cnum.dirty || cnum.invalid)">
+                                            <div *ngIf="cnum.errors?.required">Name is Required</div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-sm-6">End Date
+                                           <div class="row">
+                                               <div class="col-sm-6">
+                                                <div class="form-group"> 
+                                                    <label for="mm"></label>
+                                                    <input required  maxlength="2" minlength="2" type="number" class="form-control" id="mm" placeholder="mm" name="mm" ngModel #mm="ngModel">
+                                                    <div class="text-danger" *ngIf="isSubmitted||mm.touched && (mm.dirty || mm.invalid)">
+                                                        <div *ngIf="mm.errors?.required">month is Required</div>
+                                                        <div *ngIf="mm.errors?.maxlength">2 digits are Required</div>
+                                                        <div *ngIf="mm.errors?.minlength">2 digits are Required</div>
+                                                    </div>
+                                                </div>
+                                               </div>
+                                               <div class="col-sm-6">
+                                                <div class="form-group"> 
+                                                    <label for="yyyy"></label>
+                                                    <input required  maxlength="4" minlength="4" type="number" class="form-control" id="yyyy" placeholder="yyyy" name="yyyy" ngModel #yyyy="ngModel">
+                                                    <div class="text-danger" *ngIf="isSubmitted||yyyy.touched && (yyyy.dirty || yyyy.invalid)">
+                                                        <div *ngIf="yyyy.errors?.required">year is Required</div>
+                                                        <div *ngIf="yyyy.errors?.maxlength">2 digits are Required</div>
+                                                        <div *ngIf="yyyy.errors?.minlength">2 digits are Required</div>
+                                                    </div>
+                                                </div>
+                                               </div>
+                                           </div>
+                                        </div>
+                                        <div class="col-sm-6">CVV
+                                            <div class="row">
+                                                <div class="col-sm-6">
+                                                    <div class="form-group"> 
+                                                        <label for="cvv"></label>
+                                                        <input required  maxlength="3" minlength="3" type="number" class="form-control" id="cvv" placeholder="CVV" name="cvv" ngModel #cvv="ngModel">
+                                                        <div class="text-danger" *ngIf="isSubmitted||cvv.touched && (cvv.dirty || cvv.invalid)">
+                                                            <div *ngIf="cvv.errors?.required">CVV is Required</div>
+                                                            <div *ngIf="cvv.errors?.maxlength">3 igits are Required</div>
+                                                            <div *ngIf="cvv.errors?.minlength">3 digits are Required</div>
+                                                        </div>
+                                                    </div>
+                                                </div>                                            
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <br>
+                                  <div > <button type="submit"  style="background-color: rgb(116, 223, 116);">Pay Now >></button> </div>
+                                </div>
+                                <div class="col-sm-6"></div>
+                            </div>
+                        </form> -->
+                        <div class="slide-in-tr vv">
+      
+                          <div class="row g-0">
+                              <div class="col-sm-2"></div>
+                              <div class="col-sm-8 cc">
+                                  <div class="container">
+                                  <form #ref="ngForm" (ngSubmit)="onSubmit(ref.value)">
+                                       <!-- Card number-->
+                                      <div class="form-group mt-2">
+                                          <input type="text" name="Cardnumber" id="Cardnumber" class="form-control" 
+                                          required minlength="12" maxlength="12" ngModel placeholder="Cardnumber" #chname="ngModel">
+                                          </div>
+                                          <!-- card number validation -->
+                                          <div class="text-danger" *ngIf="isSubmitted||chname.touched && (chname.dirty || chname.invalid)">
+                                              <div *ngIf="chname.errors?.required">Card number is required </div>                 
+                                              <div *ngIf="chname.errors?.maxlength">Maxlength is 12</div>
+                                              <div *ngIf="chname.errors?.minlength">Maxlength is 12</div>
+                                              
+                                          </div>
+                                          <!-- card holder name -->
+                                      <div class="form-group mt-2">
+                                          <input type="text" name="Cardholdername" id="Cardholdername" 
+                                          class="form-control" required ngModel placeholder="Cardholdername" #chn="ngModel">
+                                      </div>
+                                      <!-- card holdername validation -->
+                                      <div class="text-danger" *ngIf="isSubmitted||chn.touched && (chn.dirty || chn.invalid)">
+                                          <div *ngIf="chn.errors?.required">Card number is required</div>
+                                      </div>
+                                      <div class="row">
+                                          <div class="col-sm-6">
+                                              <!-- Expiry month -->
+                                      <div class="form-group mt-2">
+                                          <input type="number" name="expm" id="ProductName" class="form-control" 
+                                          required minlength="2" maxlength="2" ngModel 
+                                          placeholder="expiry month" #expm="ngModel">
+                                          </div>
+                                          <!-- Expiry month validation -->
+                                          <div class="text-danger" *ngIf="isSubmitted||expm.touched && (expm.dirty || expm.invalid)">
+                                              <div *ngIf="expm.errors?.required">Expiry month is required</div>
+                                              <div *ngIf="expm.errors?.minlength">Minimum length is 2</div>
+                                              <div *ngIf="expm.errors?.maxlength">Maximum length is 2</div>
+                                          </div>
+                                          </div>
+                                         <div class="col-sm-6">
+                                               <!-- Expiry year -->
+                                           <div class="form-group mt-2">
+                                              <input type="number" name="expy" id="expy" class="form-control" 
+                                              required minlength="2" maxlength="2" ngModel 
+                                              placeholder="expiry year" #expy="ngModel">
+                                              </div>
+                                              <!-- Expiry year validation -->
+                                              <div class="text-danger" *ngIf="isSubmitted||expy.touched && (expy.dirty || expy.invalid)">
+                                                  <div *ngIf="expy.errors?.required">Expiry year is required</div>
+                                                  <div *ngIf="expy.errors?.minlength">Minimum length is 2</div>
+                                                  <div *ngIf="expy.errors?.maxlength">Maximum length is 2</div>
+                                              </div>
+                                      </div>
+                                         </div>
+                                          <!-- cvv -->
+                                          <div class="col-sm-6">
+                                              <div class="row">
+                                                  <div class="col-sm-6">
+                                                      <div class="form-group"> 
+                                                          <label for="cvv"></label>
+                                                          <input required  maxlength="3" minlength="3" type="number" class="form-control" id="cvv" placeholder="CVV" name="cvv" ngModel #cvv="ngModel">
+                                                          <div class="text-danger" *ngIf="isSubmitted||cvv.touched && (cvv.dirty || cvv.invalid)">
+                                                              <div *ngIf="cvv.errors?.required">CVV is Required</div>
+                                                              <div *ngIf="cvv.errors?.maxlength">3 igits are Required</div>
+                                                              <div *ngIf="cvv.errors?.minlength">3 digits are Required</div>
+                                                          </div>
+                                                      </div>
+                                                  </div>                                            
+                                              </div>
+                                          </div>
+                                     <div class="mt-3" >
+                                      <button type="submit" class="btn w-100 p-3 text-white rounded-1" style="background-color: #f3a406;">Paynow</button>
+                                     </div>
+                                     </form>
+                              </div>
+                              </div>                   
+                      </div>
+                      </div>         
+                  </div>
+                  </div>
+                </div>
+                <div class="accordion-item">
+                  <h2 class="accordion-header" id="headingTwo">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                      Net Banking
+                    </button>
+                  </h2>
+                  <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
+                    <div class="accordion-body">
+                      <div class="row">
+                          <div class="col-sm-6">
+                            Paypal
+                          </div>
+                          <div class="col-sm-4">
+                              <div class="btn">
+                                  <a href="https://www.paypal.com/signin"><i class="fa fa-paypal" 
+                                  style="font-size:40px;color:blue" (click)="onsubmit()"></i>
+                              </a>
+                              </div>
+                          </div>
+                      </div>
+                      
+                    </div>
+                  </div>
+                </div>
+                
+              </div>
+        
+       
+</div>
+  
