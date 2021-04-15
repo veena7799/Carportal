@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { UserserviceService } from '../userservice.service';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-bookacar',
@@ -9,22 +10,12 @@ import { UserserviceService } from '../userservice.service';
 })
 export class BookacarComponent implements OnInit {
 
+  username:any
   userobj:any=[]
-  constructor(private us:UserserviceService, private route:Router) { }
+  constructor(private us:UserserviceService, private route:Router, private toast:ToastrService) { }
 
   ngOnInit(): void {
 
-    this.us.getuserprofile().subscribe(
-      res=>{
-        console.log("user is:",res["message"])
-        this.userobj=res["message"]
-      },
-      err=>{
-        alert("retrive failed")
-        console.log(err)
-      }
-  
-  )
-
+    
 }
 }

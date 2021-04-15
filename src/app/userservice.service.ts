@@ -111,9 +111,9 @@ export class UserserviceService {
     return this.hc.put("admin/updatestatus",carobj)
   }
   
-  getuserbyusername(userobj:any):Observable<any>{
+  getuserbyusername(userobj):Observable<any>{
     console.log("userlogin",userobj)
-    return this.hc.get("user/getuser/"+userobj)
+    return this.hc.get(`user/getuser/${userobj}`)
   }
 
   getuserbyUsername(username):Observable<any>{
@@ -225,6 +225,11 @@ export class UserserviceService {
 storePaymentData(payment:any):Observable<any>{
   console.log(payment)
   return this.hc.post("/payment/storepaymentdetails",payment)
+}
+
+storeShippingAddData(useradd:any):Observable<any>{
+  console.log(useradd)
+  return this.hc.post("/useradd/adduseraddress",useradd)
 }
 
 // get cart count

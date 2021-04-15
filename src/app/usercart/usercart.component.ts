@@ -114,6 +114,6 @@ export class UsercartComponent implements OnInit {
    }  
   }
   onSubmit(){
-    this.route.navigateByUrl("/userdashboard/payment")
+    this.route.navigateByUrl("/userdashboard/billingaddress")
   }
 }

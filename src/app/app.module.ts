@@ -36,6 +36,7 @@ import { SedanComponent } from './sedan/sedan.component';
 import { AllmodelsComponent } from './allmodels/allmodels.component';
 import { PaymentComponent } from './payment/payment.component';
 import { UseraddressComponent } from './useraddress/useraddress.component';
+import { UserprofileComponent } from './userprofile/userprofile.component';
 
 
 @NgModule({
@@ -68,6 +69,7 @@ import { UseraddressComponent } from './useraddress/useraddress.component';
     AllmodelsComponent,
     PaymentComponent,
     UseraddressComponent,
+    UserprofileComponent,
    
   ],
   imports: [

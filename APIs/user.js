@@ -102,11 +102,12 @@ userApiObj.get("/getusers/:username",verify,eah(async(req,res,next)=>{
   
 
 userApiObj.put("/updateuser",eah(async (req,res)=>{
-    console.log(req.body)
-     let success=await user.updateOne({username:req.body.username},{username:req.body.username,
-        password:req.body.password,
+    console.log("updateuser",req.body)
+     let success=await User.updateOne({username:req.body.username},{
+        email:req.body.email,
+        address:req.body.address,
         mobilenumber:req.body.phoneno,})
-    console.log(success)
+    console.log("updated",success)
      res.send({message:"updated successfully"})
    
    }))

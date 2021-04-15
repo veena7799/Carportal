@@ -25,12 +25,14 @@ import { SuvComponent } from './suv/suv.component';
 import { SedanComponent } from './sedan/sedan.component';
 import { AllmodelsComponent } from './allmodels/allmodels.component';
 import { PaymentComponent } from './payment/payment.component';
+import { UserprofileComponent } from './userprofile/userprofile.component';
+import { UseraddressComponent } from './useraddress/useraddress.component';
 
 
 const routes: Routes = [
   {path:"home",component:HomeComponent},
   {path:"findacar",component:FindacarComponent},
-  {path:"userprofile",component:BookacarComponent},
+ 
   {path:"services",component:ServicesComponent},
   {path:"aboutus",component:AboutusComponent},
   {path:"login",component:LoginComponent},
@@ -44,6 +46,8 @@ children:[
   {path:"SUV",component:SuvComponent},
   {path:"Sedan",component:SedanComponent},
   {path:"payment",component:PaymentComponent},
+  {path:"userprofile",component:UserprofileComponent},
+  {path:"billingaddress",component:UseraddressComponent},
   {path:"",redirectTo:"allmodels",pathMatch:"full"}
 ]},
   

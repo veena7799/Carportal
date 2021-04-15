@@ -81,10 +81,10 @@
                                                   <div class="col-sm-6">
                                                       <div class="form-group"> 
                                                           <label for="cvv"></label>
-                                                          <input required  maxlength="3" minlength="3" type="number" class="form-control" id="cvv" placeholder="CVV" name="cvv" ngModel #cvv="ngModel">
+                                                          <input  type="number" class="form-control" id="cvv" placeholder="CVV" name="cvv" required  maxlength="3" minlength="3" ngModel #cvv="ngModel">
                                                           <div class="text-danger" *ngIf="isSubmitted||cvv.touched && (cvv.dirty || cvv.invalid)">
                                                               <div *ngIf="cvv.errors?.required">CVV is Required</div>
-                                                              <div *ngIf="cvv.errors?.maxlength">3 igits are Required</div>
+                                                              <div *ngIf="cvv.errors?.maxlength">3 digits are Required</div>
                                                               <div *ngIf="cvv.errors?.minlength">3 digits are Required</div>
                                                           </div>
                                                       </div>

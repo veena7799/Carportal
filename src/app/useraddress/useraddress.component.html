@@ -1,1 +1,71 @@
-<p>useraddress works!</p>
+<div class="container mt-3 mb-3">
+    <div class="row">
+        <div class="col-1 col-md-2"></div>
+        <div class="col-10 col-md-8">
+            <form class="bg-light" #ref="ngForm" (ngSubmit)="onSubmit(ref.value)">
+                <div class="form-group mb-2">
+                   
+                         <label for="username" class="form-label" style="color: black;font-weight: bold;">Username</label>
+                        
+                         <input type="text" class="form-control" id="username" name="username" [value]="userobj?.username" disabled>
+                     
+                    </div>
+                <div class="form-group mb-2">
+                   
+                         <label for="email" class="form-label" style="color: black;font-weight: bold;">Email</label>
+                       
+                         <input type="email" class="form-control" id="email" name="email" [(ngModel)]="userobj.email" disabled>
+                      
+                </div>
+               
+                <!-- Address-->
+               <div class="form-group mt-2">
+                   <label for="address" style="color: black;font-weight: bold;">Address</label>
+                   <input type="text" name="address" id="address" class="form-control" 
+                   required  ngModel placeholder="address" #address="ngModel">
+                   </div>
+                   <!-- Address validation -->
+                   <div class="text-danger" *ngIf="isSubmitted||address.touched && (address.dirty || address.invalid)">
+                       <div *ngIf="address.errors?.required">Required*</div>
+                   </div>
+                   <!-- City -->
+               <div class="form-group mt-2">
+                   <label for="city" style="color: black;font-weight: bold;">City</label>
+                   <input type="text" name="city" id="city" 
+                   class="form-control" required ngModel  #city="ngModel">
+               </div>
+               <!-- City validation -->
+               <div class="text-danger" *ngIf="isSubmitted||city.touched && (city.dirty || city.invalid)">
+                   <div *ngIf="city.errors?.required">Required*</div>
+               </div>
+               <!--State-->
+               <div class="form-group mt-2">
+                   <label for="state" style="color: black;font-weight: bold;">State</label>
+                   <input type="text" name="state" id="state" 
+                   class="form-control" required ngModel  #state="ngModel">
+              </div>
+              <!-- City validation -->
+              <div class="text-danger" *ngIf="isSubmitted||state.touched && (state.dirty || state.invalid)">
+                  <div *ngIf="state.errors?.required">Required*</div>
+              </div>
+              <div class="form-group mt-2">
+                <label for="pincode" style="color: black;font-weight: bold;">Zip</label>
+                <input type="text" name="pincode" id="pincode" 
+                class="form-control" required minlength="6" maxlength="6" ngModel  #pincode="ngModel">
+               </div>
+               <!-- City validation -->
+               <div class="text-danger" *ngIf="isSubmitted||pincode.touched && (pincode.dirty || pincode.invalid)">
+                  <div *ngIf="pincode.errors?.required">Required*</div>
+                  <div *ngIf="pincode.errors?.minlength">Minimum length is 6</div>
+                  <div *ngIf="pincode.errors?.maxlength">Maximum length is 6</div>
+               </div>
+               
+              <div class="mt-2" >
+               <button type="submit" class="btn w-100 p-3 text-white rounded-1" style="background-color: #f3a406;">Add address</button>
+              </div>
+              </form>
+        </div>
+        <div class="col-1 col-md-2"></div>
+    </div>
+   
+</div>

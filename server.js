@@ -26,12 +26,14 @@ const adminApiObj=require("./APIs/admin")
 const adminloginApiobj=require("./APIs/adminlogin")
 const usercartApiObj=require("./APIs/usercart")
 const orderApiObject=require("./APIs/payment")
+const useraddApiObj=require("./APIS/useradd")
 
 app.use("/user",userApiObj)
 app.use("/admin",adminApiObj)
 app.use("/adminlogin",adminloginApiobj)
 app.use("/usercart",usercartApiObj)
 app.use("/payment",orderApiObject)
+app.use("/useradd",useraddApiObj)
 
 
 //invalid 

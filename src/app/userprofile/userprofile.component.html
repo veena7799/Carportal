@@ -1,0 +1,66 @@
+<div class="container">
+    
+    <h3 class="fw-bold text-center">User Profile</h3>
+
+       
+     
+           <form  #ref="ngForm" (ngSubmit)="onSubmit(ref.value)">
+               <div class="form-group mb-2">
+                   <div class="row">
+                       <div class="col-sm-4">
+                        <label for="username" class="form-label">Username</label>
+                       </div>
+                       <div class="col-sm-8">
+                        <input type="text" class="form-control" id="username" name="username" [value]="userobj?.username" disabled>
+                       </div>
+                   </div>
+                   </div>
+               <div class="form-group mb-2">
+                   <div class="row">
+                       <div class="col-sm-4">
+                        <label for="email" class="form-label">Email</label>
+                       </div>
+                       <div class="col-sm-8">
+                        <input type="email" class="form-control" id="email" name="email" [(ngModel)]="userobj.email" >
+                       </div>
+                   </div>
+               </div>
+               <div class="form-group mb-2">
+                <div class="row">
+                    <div class="col-sm-4">
+                     <label for="address" class="form-label">Address</label>
+                    </div>
+                    <div class="col-sm-8">
+                     <input type="address" id="address" name="address"  class="form-control" [(ngModel)]="userobj.address" >
+                    </div>
+                </div>
+            </div>
+            <div class="form-group mb-2">
+                <div class="row">
+                    <div class="col-sm-4">
+                     <label for="mno" class="form-label">Mobile Number</label>
+                    </div>
+                    <div class="col-sm-8">
+                        <input type="text" name="mno" id="mno" class="form-control"  [(ngModel)]="userobj.mobilenumber">
+                    </div>
+                </div>
+            </div>
+
+            <div class="mb-2" >
+                <div class="row">
+                    <div class="col-md-3"></div>
+                    <div class="col-md-3">
+                      <button type="submit" class="btn w-100  text-white rounded-1" style="background-color: rgb(26, 165, 26)">Save</button>
+                    </div>
+                    <div class="col-md-3">    
+                      <button  class="btn w-100  text-white rounded-1" style="background-color:rgb(218, 36, 36)" (click)="Cancelupdate()">Cancel</button>
+                    </div>
+                    <div class="col-md-3"></div>
+
+                </div>
+          </div>
+               
+           </form>
+      
+</div>
+
