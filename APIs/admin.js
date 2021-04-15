@@ -63,9 +63,6 @@ if(success==null){
     carprice:req.body.carprice,
     status:req.body.status,
     carimage:req.body.image
-    
-   
-
 })
 await Admin.save();
 

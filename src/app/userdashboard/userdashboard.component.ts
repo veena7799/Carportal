@@ -32,13 +32,13 @@ export class UserdashboardComponent implements OnInit {
                     this.carobj=res["message"]
                   },
                   err=>{
-                    alert("retrive failed")
+                    this.toast.error("session expired")
                     console.log(err)
                   }
                 )
               }
               else{
-                alert(res["message"])
+               
                 this.route.navigateByUrl("/login")
               }
             },

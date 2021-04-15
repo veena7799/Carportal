@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
+import { CartserviceService } from '../cartservice.service';
 import { UserserviceService } from '../userservice.service';
 
 @Component({
@@ -11,7 +12,7 @@ import { UserserviceService } from '../userservice.service';
 export class HatchbackComponent implements OnInit {
 
   hatchbackcars:any=[]
-  constructor(private us:UserserviceService,private route:Router,private toast:ToastrService) { }
+  constructor(private us:UserserviceService,private route:Router,private toast:ToastrService,private cs:CartserviceService) { }
   userobj:any
   username:any
   carobj:any=[]
@@ -23,31 +24,19 @@ export class HatchbackComponent implements OnInit {
   ngOnInit(): void {
     this.username=(localStorage.getItem("username"))
     this.username=(localStorage.getItem("username"))
-    this.us.getuserbyusername(this.username).subscribe(
-      res=>{
-        if(res["message"]=="success"){
-          this.userobj=res["userobj"]
+   
           this.us.gethatchback().subscribe(
             res=>{
               this.carobj=res["message"]
               this.emptyhatchback=this.carobj.length
             },
             err=>{
-              alert("retrive failed")
+              
               console.log(err)
             }
           )
-        }
-        else{
-          alert(res["message"])
-          this.route.navigateByUrl("/login")
-        }
-      },
-      err=>{
-        alert("something went wrong")
-        console.log(err)
-      }
-    )
+        
+    this.cartcount=this.cs.getCartcount()
 }
 
 logout()

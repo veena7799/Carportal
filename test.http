@@ -1,9 +1,7 @@
-POST http://localhost:3000/adminlogin/createadmin
+POST http://localhost:8080/adminlogin/createadmin
 Content-Type: application/json
 
 {
     "username":"admin",
-    "password":"adminpw"
-
-
+    "password":"admin"
 }

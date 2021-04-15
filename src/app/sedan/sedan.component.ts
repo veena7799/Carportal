@@ -2,6 +2,7 @@ import { Route } from '@angular/compiler/src/core';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
+import { CartserviceService } from '../cartservice.service';
 import { UserserviceService } from '../userservice.service';
 
 @Component({
@@ -18,36 +19,24 @@ export class SedanComponent implements OnInit {
   searchTerm!: string;
   cartcount:any
   x=0
-    constructor(private us:UserserviceService,private route:Router,private toast:ToastrService) {}
+    constructor(private us:UserserviceService,private cs:CartserviceService,private route:Router,private toast:ToastrService) {}
   
     ngOnInit(): void {
       this.username=(localStorage.getItem("username"))
       this.username=(localStorage.getItem("username"))
-      this.us.getuserbyusername(this.username).subscribe(
-        res=>{
-          if(res["message"]=="success"){
-            this.userobj=res["userobj"]
+      
             this.us.getsedan().subscribe(
               res=>{
                 this.carobj=res["message"]
                 this.emptysedan=this.carobj.length
               },
               err=>{
-                alert("retrive failed")
+                
                 console.log(err)
               }
             )
-          }
-          else{
-            alert(res["message"])
-            this.route.navigateByUrl("/login")
-          }
-        },
-        err=>{
-          alert("something went wrong")
-          console.log(err)
-        }
-      )
+          
+      this.cartcount=this.cs.getCartcount()
     
     }
     logout()

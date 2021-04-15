@@ -64,11 +64,11 @@ submitted:any=false
               if(res["message"]=="You are successfully logged"){
                 localStorage.setItem("token",res["token"])
                 localStorage.setItem("username",res["username"])
-                this.toastr.success('you have succesfully logged','title')
+                this.toastr.success('you have succesfully logged')
                 this.route.navigateByUrl("/admindashboard")
               }
               else{
-                this.toastr.error('your credentials are wrong','title')
+                this.toastr.error('your credentials are wrong')
                 
               }
             },

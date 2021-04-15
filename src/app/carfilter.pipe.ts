@@ -10,8 +10,7 @@ export class CarfilterPipe implements PipeTransform {
       return dataArray;    
     }
     else{
-    return dataArray.filter(carobj=>carobj.carname.toLowerCase().indexOf(searchTerm.toLowerCase())!==-1  )
+    return dataArray.filter(carobj=>carobj.carname.toLowerCase().indexOf(searchTerm.toLowerCase())!==-1)
     }
   }
-
 }
