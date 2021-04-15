@@ -170,10 +170,10 @@ export class UserserviceService {
     return this.valueofX.asObservable()
   }
   
-  setplusX(){
+  /*setplusX(){
     this.valueofX.next(this.x++)
     console.log("x value",this.x)
-  }
+  }*/
   
   setminusX(){
     this.valueofX.next(this.x--)
@@ -255,4 +255,5 @@ private valueofX1:BehaviorSubject<any>=new BehaviorSubject(this.x1)
     this.valueofX1.next(this.x1--)
     console.log("x value",this.x1)
   }
+ 
 }

@@ -38,11 +38,11 @@ const storage = new CloudinaryStorage({
   req.body=JSON.parse(req.body.productobj)
   req.body.image=req.file.path;
   let productobj=req.body      
-  console.log(req.body)
+  console.log("req.body admin",req.body)
  //insert 
  
  let success = await admin.findOne({carid:req.body.carid})
- console.log("success",success)
+ console.log("success",success) 
 
 if(success==null){
   let Admin = await new admin({
@@ -89,7 +89,7 @@ adminApiObj.get("/getcar/:carname",eah(async (req,res)=>{
 
 adminApiObj.put("/updatecar",eah(async (req,res)=>{
  console.log(req.body)
-  let success=await admin.updateOne({carname:req.body.carname},{cartype:req.body.cartype,
+  let success=await admin.updateOne({carid:req.body.carid},{cartype:req.body.cartype, carname:req.body.carname,
   carcolour:req.body.carcolour,numberofseats:req.body.numberofseats,
   overalllength:req.body.overalllength,overallheight:req.body.overallheight,carprice:req.body.carprice})
  console.log(success)

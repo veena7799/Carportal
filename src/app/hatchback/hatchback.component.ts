@@ -31,12 +31,13 @@ export class HatchbackComponent implements OnInit {
               this.emptyhatchback=this.carobj.length
             },
             err=>{
-              
+              this.toast.error("Retrive failed")
               console.log(err)
             }
           )
         
-    this.cartcount=this.cs.getCartcount()
+          this.cs.getCartcount().subscribe(cartcount=>this.cartcount=cartcount)
+          console.log("hatchback count",this.cartcount)
 }
 
 logout()
@@ -45,29 +46,23 @@ logout()
 }
 
 addtoCart(car:any){
-car.username=this.username
-this.us.addToCart(car).subscribe(
-  res=>{
-    if(res["message"]=="car added to cart successfully"){
-            this.toast.success("car added to cart successfully")
-            this.us.getx().subscribe(valueofX=>this.x=valueofX)   
-            //this.us.setplusX()                 
-           console.log(this.x)
-           this.userobj.cartcount=++this.x  
-           this.us.updateCartCount(this.userobj).subscribe()               
-          }
-    else{
-      this.toast.error(res["message"])
+  car.username=this.username
+  this.us.addToCart(car).subscribe(
+    res=>{
+      if(res["message"]=="car added to cart successfully"){
+              this.toast.success("car added to cart successfully")
+              this.cs.setCartcount(++this.cartcount)             
+            }
+      else{
+        this.toast.error(res["message"])
+      }
+    },
+    err=>{
+         console.log(err)
+         this.toast.error(err)
     }
-  },
-  err=>{
-       console.log(err)
-       this.toast.error(err)
-  }
-
-)
-this.us.getusernameforcart(this.username)
-
+  
+  )  
 }
 cart(){
 this.route.navigateByUrl("addtoCart")

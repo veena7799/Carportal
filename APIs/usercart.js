@@ -92,8 +92,8 @@ usercartApiObj.put("/updatecarincart",eah(async(req,res)=>{
 // update quantity and product price
 usercartApiObj.put("/updatecart",eah(async(req,res)=>{
     let success = await Usercart.updateOne({$and:[{username:req.body.username},{carid:req.body.carid}]},
-        {quantity:req.body.quantity},{carprice:req.body.carprice})
-        console.log(success)
+        {quantity:req.body.quantity,carprice:req.body.carprice})
+        console.log("quantity and price updated",success)
 }))
 
 // get cart count

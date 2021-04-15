@@ -22,23 +22,14 @@ export class UserdashboardComponent implements OnInit {
   
     ngOnInit(): void {
           this.username=(localStorage.getItem("username"))
-          console.log(this.username)
+          //console.log(this.username)
           this.us.getuserbyusername(this.username).subscribe(
             res=>{
               if(res["message"]=="success"){
                 this.userobj=res["userobj"]
-                this.us.getcar().subscribe(
-                  res=>{
-                    this.carobj=res["message"]
-                  },
-                  err=>{
-                    this.toast.error("session expired")
-                    console.log(err)
-                  }
-                )
               }
               else{
-               
+                this.toast.warning("Session expired please login to continue")
                 this.route.navigateByUrl("/login")
               }
             },
@@ -52,19 +43,21 @@ export class UserdashboardComponent implements OnInit {
           // send cart count
           this.us.getCartCount(this.username).subscribe(
             res=>{
-                this.cartcount=res["message"]
-               //console.log(this.cartcount)
-                this.cs.setCartcount(this.cartcount)
-            }
-
-          )
-          this.cartcount=this.cs.getCartcount()
-        console.log(this.cartcount)
+              this.cartcount=res["message"]
+             //console.log(this.cartcount)
+              this.cs.setCartcount(this.cartcount)
+              console.log("userdashboard  count",this.cartcount)
+          },
+          err=>{
+               this.toast.error("cartcount is not defined")
+          }
+        )
+        this.cs.getCartcount().subscribe(cartcount=>this.cartcount=cartcount)  
+        console.log("userdashboard count",this.cartcount)
     }
     logout()
     { 
       localStorage.clear()
-      this.toast.success("Logged out successfully!!")
       this.route.navigateByUrl("/home")
     }
     
@@ -74,23 +67,11 @@ export class UserdashboardComponent implements OnInit {
       this.us.addToCart(car).subscribe(
         res=>{
           if(res["message"]=="car added to cart successfully"){
-                  this.toast.success("car added to cart successfully")
-                     this.cartcount++ 
-                    
-                    this.cs.setCartcount(this.cartcount)                  
-                 this.route.navigateByUrl("/userdashboard/usercart")             
-                }
-          else{
-            this.toast.error(res["message"])
+            this.cartcount=this.cartcount+1
+            console.log(this.cartcount)
           }
-        },
-        err=>{
-             console.log(err)
-             this.toast.error(err)
         }
-
       )
-      this.us.getusernameforcart(this.username)
     
     }
     cart(){

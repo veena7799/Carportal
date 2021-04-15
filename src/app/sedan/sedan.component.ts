@@ -31,13 +31,12 @@ export class SedanComponent implements OnInit {
                 this.emptysedan=this.carobj.length
               },
               err=>{
-                
+                alert("retrive failed")
                 console.log(err)
               }
             )
-          
-      this.cartcount=this.cs.getCartcount()
-    
+            this.cs.getCartcount().subscribe(cartcount=>this.cartcount=cartcount)
+          console.log("count",this.cartcount)
     }
     logout()
     {
@@ -50,11 +49,7 @@ export class SedanComponent implements OnInit {
         res=>{
           if(res["message"]=="car added to cart successfully"){
                   this.toast.success("car added to cart successfully")
-                  this.us.getx().subscribe(valueofX=>this.x=valueofX)   
-                  //this.us.setplusX()                 
-                 console.log(this.x)
-                 this.userobj.cartcount=++this.x  
-                 this.us.updateCartCount(this.userobj).subscribe()               
+                  this.cs.setCartcount(++this.cartcount)             
                 }
           else{
             this.toast.error(res["message"])
@@ -64,10 +59,7 @@ export class SedanComponent implements OnInit {
              console.log(err)
              this.toast.error(err)
         }
-
       )
-      this.us.getusernameforcart(this.username)
-    
     }
     cart(){
       this.route.navigateByUrl("addtoCart")

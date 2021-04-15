@@ -21,10 +21,10 @@ const { updateOne, update } = require("../models/userschema");
 userApiObj.post("/createuser",eah( async(req,res)=>{
    
     console.log(req.body)
-    let hashedPassword=await bcryptjs.hash(req.body.password,7)
-
+    
     let userobj = await User.findOne({username:req.body.username})
     if(userobj==null){
+        let hashedPassword=await bcryptjs.hash(req.body.password,7)
         let newuserobj=  new User({
         username:req.body.username,
         password:hashedPassword,
